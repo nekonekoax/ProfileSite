@@ -31,7 +31,52 @@ document.addEventListener('DOMContentLoaded', () => {
     initImageModal();
     initCursorEffects();
     initTwitchStreamState();
+    initBgmPlayer();
 });
+
+// =====================================
+// Background Music Player
+// =====================================
+function initBgmPlayer() {
+    const audio = document.getElementById('bgmAudio');
+    const toggle = document.getElementById('bgmToggle');
+    const label = toggle ? toggle.querySelector('.bgm-text') : null;
+
+    if (!audio || !toggle || !label) return;
+
+    const savedMuted = localStorage.getItem('bgmMuted');
+    const isMuted = savedMuted === null ? false : savedMuted === 'true';
+
+    audio.volume = 0.5;
+    audio.muted = isMuted;
+    updateBgmUi(isMuted);
+
+    // Try to start playback (may be blocked until user interaction)
+    audio.play().catch(() => {
+        // Autoplay might be blocked; user interaction will start it
+    });
+
+    toggle.addEventListener('click', () => {
+        const nextMuted = !audio.muted;
+        audio.muted = nextMuted;
+        localStorage.setItem('bgmMuted', String(nextMuted));
+        updateBgmUi(nextMuted);
+
+        if (!nextMuted) {
+            audio.play().catch(() => {
+                audio.muted = true;
+                localStorage.setItem('bgmMuted', 'true');
+                updateBgmUi(true);
+            });
+        }
+    });
+
+    function updateBgmUi(muted) {
+        toggle.classList.toggle('is-muted', muted);
+        toggle.setAttribute('aria-pressed', String(!muted));
+        label.textContent = muted ? 'BGM OFF' : 'BGM ON';
+    }
+}
 
 // =====================================
 // Intersection Observer for Animations

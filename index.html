@@ -12,7 +12,7 @@
     <script src="https://player.twitch.tv/js/embed/v1.js"></script>
 </head>
 <body>
-    <!-- Loading screen -->
+ 
     <div class="loading-screen" id="loadingScreen">
         <div class="loading-content">
             <div class="cat-spinner">🐱</div>
@@ -20,11 +20,23 @@
         </div>
     </div>
 
-    <!-- Background animations -->
+    <audio
+        id="bgmAudio"
+        src="%E3%80%90%E3%83%95%E3%83%AA%E3%83%BCBGM%E3%80%91%E3%81%8B%E3%82%8F%E3%81%84%E3%81%84BGM%E3%83%A1%E3%83%89%E3%83%AC%E3%83%BC%208%E6%9B%B2%E3%80%90Chill_%E3%81%8B%E3%82%8F%E3%81%84%E3%81%84_%E3%82%86%E3%82%81%E3%81%8B%E3%82%8F_%E4%BD%9C%E6%A5%AD%E7%94%A8BGM%E3%80%91%20-%20Pico%20Music.mp3"
+        preload="auto"
+        loop
+        muted>
+    </audio>
+    <button class="bgm-toggle" id="bgmToggle" aria-pressed="false" aria-label="BGM toggle">
+        <span class="record-disc" aria-hidden="true"></span>
+        <span class="bgm-text">BGM</span>
+    </button>
+
+
     <div class="bg-animation">
-        <!-- Floating background image -->
+  
         <div class="floating-bg"></div>
-        <!-- Cursor following effects -->
+    
         <div class="cursor-effects"></div>
         <div class="paw paw1">🐾</div>
         <div class="paw paw2">🐾</div>
@@ -42,9 +54,9 @@
         <div class="star star6">💖</div>
     </div>
 
-    <!-- Main container -->
+
     <div class="container">
-        <!-- Left side tack images -->
+
         <aside class="tack-images tack-left">
             <div class="tack-image" style="--delay: 0s">
                 <img src="賞味期限切れ/IMG_7093.jpg" alt="思い出">
@@ -54,9 +66,9 @@
             </div>
         </aside>
 
-        <!-- Main content wrapper -->
+
         <div class="main-content">
-        <!-- Header section -->
+
         <header class="header">
             <div class="profile-img-wrapper">
                 <img src="400_20260205152722.png" alt="ねこにゃんこ" class="profile-img">
@@ -66,35 +78,31 @@
             <h1 class="title">ねこにゃんこ</h1>
             <p class="subtitle">🎮 かけだしストリーマー 🎵</p>
             
-            <!-- Clickable image that triggers modal -->
+ 
             <div class="special-img-container" id="specialImgContainer">
                 <img src="55a6cd2043673d56_20260214043220-removebg-preview.png" alt="Special" class="special-img" id="triggerImage">
             </div>
         </header>
 
-        <!-- Expanded image modal -->
+
         <div class="image-modal" id="imageModal">
             <div class="image-modal-content">
                 <img src="55a6cd2043673d56_20260214043220-removebg-preview.png" alt="Expanded" class="expanded-image">
             </div>
         </div>
 
-        <!-- Twitch stream preview -->
         <div class="twitch-section">
             <h2 class="card-title" id="twitchTitle">まえの配信たち</h2>
             <div class="twitch-container" id="twitchContainer">
-                <!-- Live stream player -->
                 <div id="twitchLive" class="stream-player" style="display: none;">
                     <div id="livePlayer"></div>
                 </div>
-                <!-- Archive player (shown when not live) -->
                 <div id="twitchArchive" class="stream-player">
                     <div id="archivePlayer"></div>
                 </div>
             </div>
         </div>
 
-        <!-- Profile info cards -->
         <main class="content">
             <div class="info-card">
                 <div class="info-item">
@@ -116,7 +124,6 @@
                 </div>
             </div>
 
-            <!-- Games section -->
             <div class="games-card">
                 <h2 class="card-title">よくやるゲーム</h2>
                 <div class="games-list">
@@ -129,7 +136,6 @@
                 </div>
             </div>
 
-            <!-- Social links -->
             <div class="social-section">
                 <h2 class="card-title">ふぉろーしろ！</h2>
                 <div class="social-links">
@@ -164,7 +170,6 @@
             </div>
         </main>
 
-        <!-- Right side tack images -->
         <aside class="tack-images tack-right">
             <div class="tack-image" style="--delay: 0.15s">
                 <img src="賞味期限切れ/IMG_7765.jpg" alt="思い出">
@@ -173,9 +178,8 @@
                 <img src="賞味期限切れ/IMG_5940.jpeg" alt="思い出">
             </div>
         </aside>
-        </div> <!-- End main-content -->
+        </div> 
 
-        <!-- Footer -->
         <footer class="footer">
             <p>© 2026 ねこにゃんこ All Rights Reserved.</p>
             <div class="heart">♡</div>
